@@ -628,6 +628,19 @@ require('lazy').setup({
     },
   },
 
+  {
+    'supermaven-inc/supermaven-nvim',
+    config = function()
+      require('supermaven-nvim').setup {
+        color = {
+          suggestion_color = '#ffffff',
+          cterm = 244,
+        },
+        disable_inline_completion = false,
+      }
+    end,
+  },
+
   { -- Autoformat
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
