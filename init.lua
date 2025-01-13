@@ -172,18 +172,6 @@ require('lazy').setup({
       },
     },
   },
-
-  {
-    'zbirenbaum/copilot.lua',
-    event = 'InsertEnter',
-    cmd = 'Copilot',
-    build = ':Copilot auth',
-    opts = {
-      suggestion = { enabled = false },
-      panel = { enabled = false },
-    },
-  },
-
   {
     'kdheepak/lazygit.nvim',
     lazy = true,
@@ -621,6 +609,25 @@ require('lazy').setup({
     end,
   },
 
+  {
+    'christoomey/vim-tmux-navigator',
+    cmd = {
+      'TmuxNavigateLeft',
+      'TmuxNavigateDown',
+      'TmuxNavigateUp',
+      'TmuxNavigateRight',
+      'TmuxNavigatePrevious',
+      'TmuxNavigatorProcessList',
+    },
+    keys = {
+      { '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
+      { '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
+      { '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
+      { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
+      { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
+    },
+  },
+
   { -- Autoformat
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
@@ -688,16 +695,6 @@ require('lazy').setup({
             'rafamadriz/friendly-snippets',
             config = function()
               require('luasnip.loaders.from_vscode').lazy_load()
-            end,
-          },
-
-          {
-            'zbirenbaum/copilot-cmp',
-            config = function()
-              require('copilot_cmp').setup {
-                suggestion = { enabled = false },
-                panel = { enabled = false },
-              }
             end,
           },
         },
